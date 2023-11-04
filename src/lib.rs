@@ -1,6 +1,6 @@
 use serde::{Deserialize, Serialize};
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 #[serde(rename_all = "PascalCase")]
 pub struct Manifest {
     pub actions: Vec<Action>,
@@ -34,7 +34,7 @@ impl Manifest {
     }
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 #[serde(rename_all = "PascalCase")]
 pub struct Action {
     #[serde(rename = "UUID")]
@@ -55,7 +55,7 @@ pub struct Action {
 
 pub type Controller = String;
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 #[serde(rename_all = "PascalCase")]
 pub struct State {
     pub image: String,
@@ -71,7 +71,7 @@ pub struct State {
     pub font_underline: Option<bool>,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 #[serde(rename_all = "PascalCase")]
 pub struct Encoder {
     #[serde(rename = "background")]
@@ -82,7 +82,7 @@ pub struct Encoder {
     pub trigger_description: Option<TriggerDescription>,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 #[serde(rename_all = "PascalCase")]
 pub struct TriggerDescription {
     pub rotate: Option<String>,
@@ -91,14 +91,14 @@ pub struct TriggerDescription {
     pub long_touch: Option<String>,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 #[serde(rename_all = "PascalCase")]
 pub struct OS {
     pub platform: String,
     pub minimum_version: String,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 #[serde(rename_all = "PascalCase")]
 pub struct Profile {
     pub name: String,
@@ -109,7 +109,7 @@ pub struct Profile {
 
 pub type DeviceType = u32;
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct ApplicationsToMonitor {
     pub mac: Vec<BundleId>,
     pub windows: Vec<Exe>,
