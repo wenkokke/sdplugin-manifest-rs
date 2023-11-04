@@ -26,6 +26,14 @@ pub struct Manifest {
     pub applications_to_monitor: Option<ApplicationsToMonitor>,
 }
 
+impl Manifest {
+    pub fn uuid(&self) -> Option<&str> {
+        let first_action = self.actions.first()?;
+        let sdplugin_uuid = first_action.uuid.rsplit_once(".")?.0;
+        Some(sdplugin_uuid)
+    }
+}
+
 #[derive(Serialize, Deserialize)]
 #[serde(rename_all = "PascalCase")]
 pub struct Action {
